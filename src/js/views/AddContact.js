@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
+import { Context } from "../store/appContext.js";
+
 export const AddContact = () => {
+	const { store, actions } = useContext(Context);
+	const { objeto, setObjeto } = useState({});
+	/*{
+	let objeto = {
+		"email": objEmail
+	};
+    }
+
+	{
+    function handleClick() {
+		createContact(objeto);
+	}
+    }*/
+
 	return (
 		<div className="container">
 			<div>
@@ -13,7 +29,11 @@ export const AddContact = () => {
 					</div>
 					<div className="form-group">
 						<label>Email</label>
-						<input type="email" className="form-control" placeholder="Enter email" />
+						<input
+							type="email"
+							className="form-control"
+							placeholder="Enter email" /* {value={objEmail}} */
+						/>
 					</div>
 					<div className="form-group">
 						<label>Phone</label>
