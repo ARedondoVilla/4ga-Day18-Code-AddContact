@@ -41,10 +41,10 @@ const getState = ({ getStore, setStore, getActions }) => {
 						return response.json();
 					})
 					.then(json => {
-						console.log(json);
+						console.log("JSON Response: ", json);
 
 						setStore({
-							agenda: json
+							agenda: json // ASIGNA AL ARRAY AGENDA LOS OBJETOS CONTACTOS AÑADIDIOS A agenda_slug
 						});
 						//console.log(json.results); // IMPRIME EL RESULTADOS DEL JSON OBTENIDO
 					});

@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import MikePhoto from "../../img/m101.jpg";
+
+import { Context } from "../store/appContext.js";
 
 export const ContactCard = props => {
 	const [state, setState] = useState({
 		//initialize state here
 	});
+
+	const { store, actions } = useContext(Context);
 
 	return (
 		<li className="list-group-item">
@@ -23,8 +27,11 @@ export const ContactCard = props => {
 							<i className="fas fa-trash-alt" />
 						</button>
 					</div>
-					<label className="name lead">Mike Anamendolla</label>
+
+					<label className="name lead">{() => props.name}</label>
+
 					<br />
+
 					<i className="fas fa-map-marker-alt text-muted mr-3" />
 					<span className="text-muted">5842 Hillcrest Rd</span>
 					<br />
@@ -34,6 +41,7 @@ export const ContactCard = props => {
 						title=""
 						data-original-title="(870) 288-4149"
 					/>
+
 					<span className="text-muted small">(870) 288-4149</span>
 					<br />
 					<span
