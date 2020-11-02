@@ -1,13 +1,14 @@
 const getState = ({ getStore, setStore, getActions }) => {
 	return {
 		store: {
-			agenda: []
+			agenda: [],
+			contacto: []
 			//Your data structures, A.K.A Entities
 		},
 		actions: {
 			createContact(data, slug) {
 				const store = getStore();
-				const endpoint = "https://assets.breatheco.de/apis/fake/contact";
+				const endpoint = "https://assets.breatheco.de/apis/fake/contact/";
 				const config = {
 					method: "POST",
 					body: JSON.stringify(data),
@@ -24,11 +25,66 @@ const getState = ({ getStore, setStore, getActions }) => {
 					});
 			},
 
-			getContact(id) {},
+			getContact(id) {
+				const store = getStore();
+				const endpoint = "https://assets.breatheco.de/apis/fake/contact/:id";
+				const config = {
+					method: "GET"
+				};
+				fetch(endpoint, config)
+					.then(response => {
+						return response.json();
+					})
+					.then(json => {
+						console.log("JSON Response: ", json);
 
-			updateContact(id, data) {},
+						setStore({
+							contacto: json // OBTIENE EL CONTACTO DEL ID SELECCIONADO
+						});
+					});
+			},
 
-			deleteContact(id) {},
+			updateContact(id, data) {
+				const store = getStore();
+				const endpoint = "https://assets.breatheco.de/apis/fake/contact/:id";
+				const config = {
+					method: "PUT",
+					body: JSON.stringify(data),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				};
+				fetch(endpoint, config)
+					.then(response => {
+						return response.json();
+					})
+					.then(json => {
+						console.log("JSON Response: ", json);
+
+						setStore({
+							contacto: json // RESPUESTA CON EL CONTACTO MODIFICADO
+						});
+					});
+			},
+
+			deleteContact(id) {
+				const store = getStore();
+				const endpoint = "https://assets.breatheco.de/apis/fake/contact/:id";
+				const config = {
+					method: "DELETE"
+				};
+				fetch(endpoint, config)
+					.then(response => {
+						return response.json();
+					})
+					.then(json => {
+						console.log("JSON Response: ", json);
+
+						setStore({
+							contacto: json // ES NECESARIA UNA RESPUESTA AQUI?
+						});
+					});
+			},
 
 			listContacts(slug) {
 				const store = getStore();

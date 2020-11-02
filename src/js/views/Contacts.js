@@ -35,7 +35,10 @@ export const Contacts = () => {
 							<ContactCard
 								onDelete={() => setState({ showModal: true })}
 								key={index}
-								name={element.full_name}
+								contactName={element.full_name}
+								contactAddress={element.address}
+								contactPhone={element.phone}
+								contactEmail={element.email}
 							/>
 						))}
 					</ul>

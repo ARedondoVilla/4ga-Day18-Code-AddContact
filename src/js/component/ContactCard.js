@@ -28,12 +28,12 @@ export const ContactCard = props => {
 						</button>
 					</div>
 
-					<label className="name lead">{() => props.name}</label>
+					<label className="name lead">{props.contactName}</label>
 
 					<br />
 
 					<i className="fas fa-map-marker-alt text-muted mr-3" />
-					<span className="text-muted">5842 Hillcrest Rd</span>
+					<span className="text-muted">5842 Hillcrest Rd {props.contactAddress}</span>
 					<br />
 					<span
 						className="fa fa-phone fa-fw text-muted mr-3"
@@ -42,7 +42,7 @@ export const ContactCard = props => {
 						data-original-title="(870) 288-4149"
 					/>
 
-					<span className="text-muted small">(870) 288-4149</span>
+					<span className="text-muted small">(870) 288-4149 {props.contactPhone}</span>
 					<br />
 					<span
 						className="fa fa-envelope fa-fw text-muted mr-3"
@@ -50,7 +50,7 @@ export const ContactCard = props => {
 						data-original-title=""
 						title=""
 					/>
-					<span className="text-muted small text-truncate">mike.ana@example.com</span>
+					<span className="text-muted small text-truncate">mike.ana@example.com {props.contactEmail}</span>
 				</div>
 			</div>
 		</li>
@@ -62,8 +62,13 @@ export const ContactCard = props => {
  * your component's properties
  **/
 ContactCard.propTypes = {
+	// BUSCAR INFORMACION SOBRE LA DEFINICION DE LAS PROPIEDADES PROPS
 	history: PropTypes.object,
-	onDelete: PropTypes.func
+	onDelete: PropTypes.func,
+	contactName: PropTypes.string,
+	contactAddress: PropTypes.string,
+	contactPhone: PropTypes.string,
+	contactEmail: PropTypes.string
 };
 
 /**

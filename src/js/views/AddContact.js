@@ -6,9 +6,14 @@ import { Context } from "../store/appContext.js";
 export const AddContact = () => {
 	const { store, actions } = useContext(Context);
 	const { objeto, setObjeto } = useState({});
+
 	/*{
 	let objeto = {
-		"email": objEmail
+        agenda_slug = "ARedondoVilla",
+        email = "dataEmail"
+        full_name = "dataFullName",
+        phone = "dataPhone",
+
 	};
     }
 
