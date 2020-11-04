@@ -1,9 +1,11 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { Context } from "../store/appContext.js";
 
-export function AddContact() {
+export function UpdateContact() {
+	const params = useParams();
+
 	const { store, actions } = useContext(Context); // SE DEFINE COMO OBJETO
 	// const [newContact, setNewContact] = useState({});
 

@@ -39,6 +39,7 @@ export const Contacts = () => {
 								contactAddress={element.address}
 								contactPhone={element.phone}
 								contactEmail={element.email}
+								contactId={element.id}
 							/>
 						))}
 					</ul>

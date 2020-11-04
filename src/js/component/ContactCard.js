@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import MikePhoto from "../../img/m101.jpg";
 
@@ -27,13 +27,13 @@ export const ContactCard = props => {
 							<i className="fas fa-trash-alt" />
 						</button>
 					</div>
-
-					<label className="name lead">{props.contactName}</label>
-
+					<Link to={"/edit/" + props.contactId}>
+						<label className="name lead">{props.contactName}</label>
+					</Link>
 					<br />
 
 					<i className="fas fa-map-marker-alt text-muted mr-3" />
-					<span className="text-muted">5842 Hillcrest Rd {props.contactAddress}</span>
+					<span className="text-muted">{props.contactAddress}</span>
 					<br />
 					<span
 						className="fa fa-phone fa-fw text-muted mr-3"
@@ -42,7 +42,7 @@ export const ContactCard = props => {
 						data-original-title="(870) 288-4149"
 					/>
 
-					<span className="text-muted small">(870) 288-4149 {props.contactPhone}</span>
+					<span className="text-muted small">{props.contactPhone}</span>
 					<br />
 					<span
 						className="fa fa-envelope fa-fw text-muted mr-3"
@@ -50,7 +50,7 @@ export const ContactCard = props => {
 						data-original-title=""
 						title=""
 					/>
-					<span className="text-muted small text-truncate">mike.ana@example.com {props.contactEmail}</span>
+					<span className="text-muted small text-truncate">{props.contactEmail}</span>
 				</div>
 			</div>
 		</li>
@@ -68,7 +68,8 @@ ContactCard.propTypes = {
 	contactName: PropTypes.string,
 	contactAddress: PropTypes.string,
 	contactPhone: PropTypes.string,
-	contactEmail: PropTypes.string
+	contactEmail: PropTypes.string,
+	contactId: PropTypes.string
 };
 
 /**

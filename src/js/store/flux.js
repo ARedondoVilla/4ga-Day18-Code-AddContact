@@ -2,11 +2,16 @@ const getState = ({ getStore, setStore, getActions }) => {
 	return {
 		store: {
 			agenda: [],
-			contacto: []
+			contacto: {
+				full_name: null,
+				phone: null,
+				email: null,
+				address: null
+			}
 			//Your data structures, A.K.A Entities
 		},
 		actions: {
-			createContact(data, slug) {
+			createContact(data) {
 				const store = getStore();
 				const endpoint = "https://assets.breatheco.de/apis/fake/contact/";
 				const config = {
@@ -18,10 +23,12 @@ const getState = ({ getStore, setStore, getActions }) => {
 				};
 				fetch(endpoint, config)
 					.then(response => {
+						console.log(response);
+
 						return response.json();
 					})
 					.then(json => {
-						getActions().listContacts(slug);
+						getActions().listContacts(data.agenda_slug);
 					});
 			},
 
