@@ -87,9 +87,9 @@ const getState = ({ getStore, setStore, getActions }) => {
 					.then(json => {
 						console.log("JSON Response: ", json);
 
-						setStore({
-							contacto: json // ES NECESARIA UNA RESPUESTA AQUI?
-						});
+						// setStore({
+						// 	contacto: json // ES NECESARIA UNA RESPUESTA AQUI?
+						// });
 					});
 			},
 

@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { Context } from "../store/appContext.js";
 
@@ -38,7 +39,7 @@ export function UpdateContact() {
 	return (
 		<div className="container">
 			<div>
-				<h1 className="text-center mt-5">Add a new contact</h1>
+				<h1 className="text-center mt-5">Update a new contact</h1>
 				<form>
 					<div className="form-group">
 						<label>Full Name</label>
