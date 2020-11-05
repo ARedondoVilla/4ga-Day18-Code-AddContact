@@ -34,7 +34,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 
 			getContact(id) {
 				const store = getStore();
-				const endpoint = "https://assets.breatheco.de/apis/fake/contact/:id";
+				const endpoint = "https://assets.breatheco.de/apis/fake/contact/" + id;
 				const config = {
 					method: "GET"
 				};
@@ -46,14 +46,14 @@ const getState = ({ getStore, setStore, getActions }) => {
 						console.log("JSON Response: ", json);
 
 						setStore({
-							contacto: json // OBTIENE EL CONTACTO DEL ID SELECCIONADO
+							contact: json // OBTIENE EL CONTACTO DEL ID SELECCIONADO
 						});
 					});
 			},
 
 			updateContact(id, data) {
 				const store = getStore();
-				const endpoint = "https://assets.breatheco.de/apis/fake/contact/:id";
+				const endpoint = "https://assets.breatheco.de/apis/fake/contact/" + id;
 				const config = {
 					method: "PUT",
 					body: JSON.stringify(data),
@@ -76,7 +76,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 
 			deleteContact(id) {
 				const store = getStore();
-				const endpoint = "https://assets.breatheco.de/apis/fake/contact/:id";
+				const endpoint = "https://assets.breatheco.de/apis/fake/contact/" + id;
 				const config = {
 					method: "DELETE"
 				};
@@ -88,7 +88,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 						console.log("JSON Response: ", json);
 
 						// setStore({
-						// 	contacto: json // ES NECESARIA UNA RESPUESTA AQUI?
+						// 	agenda: json // ES NECESARIA UNA RESPUESTA AQUI?
 						// });
 					});
 			},
@@ -104,6 +104,8 @@ const getState = ({ getStore, setStore, getActions }) => {
 						return response.json();
 					})
 					.then(json => {
+						console.log("Obteniendo contactos de agenda");
+
 						console.log("JSON Response: ", json);
 
 						setStore({

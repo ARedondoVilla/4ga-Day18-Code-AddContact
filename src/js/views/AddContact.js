@@ -25,12 +25,11 @@ export function AddContact() {
 			agenda_slug: "ARedondoVilla"
 		};
 
-		setFullName("");
-		// HACER LO MISMO CON TODOS
-
 		console.log("save contact", newContact);
 
 		actions.createContact(newContact);
+		setFullName("");
+		// HACER LO MISMO CON TODOS
 	};
 
 	return (

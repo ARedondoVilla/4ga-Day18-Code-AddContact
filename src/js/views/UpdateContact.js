@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -7,13 +7,14 @@ import { Context } from "../store/appContext.js";
 export function UpdateContact() {
 	const params = useParams();
 
-	const { store, actions } = useContext(Context); // SE DEFINE COMO OBJETO
-	// const [newContact, setNewContact] = useState({});
+	const { store, actions } = useContext(Context);
 
-	const [fullName, setFullName] = useState(""); // SE DEFINE COMO DOS VARIABLES
+	const [fullName, setFullName] = useState("");
 	const [phone, setPhone] = useState("");
 	const [email, setEmail] = useState("");
 	const [address, setAddress] = useState("");
+
+	useEffect(() => {}, []);
 
 	function NewEmail(event) {
 		setEmail(event.target.value);

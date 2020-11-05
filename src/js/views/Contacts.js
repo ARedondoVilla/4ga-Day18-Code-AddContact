@@ -17,8 +17,6 @@ export const Contacts = () => {
 
 	useEffect(() => {
 		actions.listContacts(usuario);
-		console.log("hola"); // SE IMPRIME, PROBAR IMPRIMIR CLAVES DEL OBJETO AGENDA
-		console.log(store.agenda);
 	}, []);
 
 	return (
