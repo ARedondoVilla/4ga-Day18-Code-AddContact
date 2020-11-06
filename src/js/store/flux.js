@@ -7,7 +7,8 @@ const getState = ({ getStore, setStore, getActions }) => {
 				phone: null,
 				email: null,
 				address: null
-			}
+			},
+			usuario: "ARedondoVilla"
 			//Your data structures, A.K.A Entities
 		},
 		actions: {
@@ -28,7 +29,8 @@ const getState = ({ getStore, setStore, getActions }) => {
 						return response.json();
 					})
 					.then(json => {
-						getActions().listContacts(data.agenda_slug);
+						console.log("Json Response: ", json);
+						getActions().listContacts(store.usuario);
 					});
 			},
 
@@ -87,9 +89,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 					.then(json => {
 						console.log("JSON Response: ", json);
 
-						// setStore({
-						// 	agenda: json // ES NECESARIA UNA RESPUESTA AQUI?
-						// });
+						getActions().listContacts(store.usuario);
 					});
 			},
 

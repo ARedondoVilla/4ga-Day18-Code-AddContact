@@ -9,6 +9,8 @@ export function UpdateContact() {
 
 	const { store, actions } = useContext(Context);
 
+	// actions.getcontact(params.id)
+
 	const [fullName, setFullName] = useState("");
 	const [phone, setPhone] = useState("");
 	const [email, setEmail] = useState("");

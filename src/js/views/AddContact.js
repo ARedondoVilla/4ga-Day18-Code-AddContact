@@ -22,14 +22,11 @@ export function AddContact() {
 			phone: phone,
 			email: email,
 			address: address,
-			agenda_slug: "ARedondoVilla"
+			agenda_slug: store.usuario
 		};
 
-		console.log("save contact", newContact);
-
 		actions.createContact(newContact);
-		setFullName("");
-		// HACER LO MISMO CON TODOS
+		// actions.listContacts(newContact.agenda_slug);
 	};
 
 	return (

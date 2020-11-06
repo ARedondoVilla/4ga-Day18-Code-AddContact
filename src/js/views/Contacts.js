@@ -13,10 +13,8 @@ export const Contacts = () => {
 
 	const { store, actions } = useContext(Context);
 
-	let usuario = "ARedondoVilla";
-
 	useEffect(() => {
-		actions.listContacts(usuario);
+		actions.listContacts(store.usuario);
 	}, []);
 
 	return (
@@ -29,17 +27,19 @@ export const Contacts = () => {
 				</p>
 				<div id="contacts" className="panel-collapse collapse show" aria-expanded="true">
 					<ul className="list-group pull-down" id="contact-list">
-						{store.agenda.map((element, index) => (
-							<ContactCard
-								onDelete={() => setState({ showModal: true })}
-								key={index}
-								contactName={element.full_name}
-								contactAddress={element.address}
-								contactPhone={element.phone}
-								contactEmail={element.email}
-								contactId={element.id}
-							/>
-						))}
+						{store.agenda.map((element, index) => {
+							return (
+								<ContactCard
+									onDelete={() => setState({ showModal: true })}
+									key={index}
+									contactName={element.full_name}
+									contactAddress={element.address}
+									contactPhone={element.phone}
+									contactEmail={element.email}
+									contactId={element.id}
+								/>
+							);
+						})}
 					</ul>
 				</div>
 			</div>
