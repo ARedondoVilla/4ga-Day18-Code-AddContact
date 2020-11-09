@@ -45,11 +45,12 @@ const getState = ({ getStore, setStore, getActions }) => {
 						return response.json();
 					})
 					.then(json => {
-						console.log("JSON Response: ", json);
+						// console.log("JSON Response: ", json);
 
 						setStore({
-							contact: json // OBTIENE EL CONTACTO DEL ID SELECCIONADO
+							contacto: json
 						});
+						console.log("flux.js", store.contacto);
 					});
 			},
 
@@ -70,9 +71,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 					.then(json => {
 						console.log("JSON Response: ", json);
 
-						setStore({
-							contacto: json // RESPUESTA CON EL CONTACTO MODIFICADO
-						});
+						getActions().listContacts(store.usuario);
 					});
 			},
 

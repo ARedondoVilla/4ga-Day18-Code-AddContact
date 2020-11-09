@@ -9,14 +9,20 @@ export function UpdateContact() {
 
 	const { store, actions } = useContext(Context);
 
-	// actions.getcontact(params.id)
+	// let updateUser = actions.getContact(params.id);
 
-	const [fullName, setFullName] = useState("");
-	const [phone, setPhone] = useState("");
-	const [email, setEmail] = useState("");
-	const [address, setAddress] = useState("");
+	const [fullName, setFullName] = useState(store.contacto.full_name);
+	const [phone, setPhone] = useState(store.contacto.phone);
+	const [email, setEmail] = useState(store.contacto.email);
+	const [address, setAddress] = useState(store.contacto.address);
 
-	useEffect(() => {}, []);
+	useEffect(() => {
+		console.log(params);
+		actions.getContact(params.id);
+		console.log("UpdateContact.js", store.contacto);
+
+		//setFullName(store.contacto.full_name);
+	}, []);
 
 	function NewEmail(event) {
 		setEmail(event.target.value);
@@ -28,15 +34,18 @@ export function UpdateContact() {
 			phone: phone,
 			email: email,
 			address: address,
-			agenda_slug: "ARedondoVilla"
+			agenda_slug: store.usuario
 		};
 
+		// console.log("update contact", newContact);
+
+		actions.updateContact(params.id, newContact);
+
+		alert("Contact successfully updated");
 		setFullName("");
-		// HACER LO MISMO CON TODOS
-
-		console.log("save contact", newContact);
-
-		actions.createContact(newContact);
+		setPhone("");
+		setEmail("");
+		setAddress("");
 	};
 
 	return (

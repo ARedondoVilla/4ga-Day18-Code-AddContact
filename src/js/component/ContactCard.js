@@ -20,16 +20,18 @@ export const ContactCard = props => {
 				</div>
 				<div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
 					<div className=" float-right">
-						<button className="btn">
-							<i className="fas fa-pencil-alt mr-3" />
-						</button>
+						<Link to={"/edit/" + props.contactId}>
+							<button className="btn" onClick={event => actions.getContact(props.contactId)}>
+								<i className="fas fa-pencil-alt mr-3" />
+							</button>
+						</Link>
 						<button className="btn" onClick={event => actions.deleteContact(props.contactId)}>
 							<i className="fas fa-trash-alt" />
 						</button>
 					</div>
-					<Link to={"/edit/" + props.contactId}>
-						<label className="name lead">{props.contactName}</label>
-					</Link>
+
+					<label className="name lead">{props.contactName}</label>
+
 					<br />
 
 					<i className="fas fa-map-marker-alt text-muted mr-3" />

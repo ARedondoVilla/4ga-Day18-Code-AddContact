@@ -5,7 +5,6 @@ import { Context } from "../store/appContext.js";
 
 export function AddContact() {
 	const { store, actions } = useContext(Context); // SE DEFINE COMO OBJETO
-	// const [newContact, setNewContact] = useState({});
 
 	const [fullName, setFullName] = useState(""); // SE DEFINE COMO DOS VARIABLES
 	const [phone, setPhone] = useState("");
@@ -27,6 +26,11 @@ export function AddContact() {
 
 		actions.createContact(newContact);
 		// actions.listContacts(newContact.agenda_slug);
+		alert("new contact created successfully");
+		setFullName("");
+		setPhone("");
+		setEmail("");
+		setAddress("");
 	};
 
 	return (
