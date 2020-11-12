@@ -31,17 +31,21 @@ export const Modal = props => {
 						)}
 					</div>
 					<div className="modal-body">
+						<p>Estas apunto de eliminar el usuario {props.contactName}</p>
 						<p>Warning: unknown consequences after this point... Kidding!</p>
 					</div>
 					<div className="modal-footer">
-						<button type="button" className="btn btn-primary">
+						<button type="button" className="btn btn-primary" onClick={() => props.onClose()}>
 							Oh no!
 						</button>
 						<button
 							type="button"
 							className="btn btn-secondary"
 							data-dismiss="modal"
-							onClick={event => actions.deleteContact(props.contactId)}>
+							onClick={event => {
+								actions.deleteContact(props.contactId);
+								props.onClose();
+							}}>
 							Do it!
 						</button>
 					</div>
@@ -58,7 +62,8 @@ Modal.propTypes = {
 	history: PropTypes.object,
 	onClose: PropTypes.func,
 	show: PropTypes.bool,
-	contactId: PropTypes.string
+	contactId: PropTypes.string,
+	contactName: PropTypes.string
 };
 
 /**

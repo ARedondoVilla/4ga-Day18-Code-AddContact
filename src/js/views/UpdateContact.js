@@ -9,20 +9,25 @@ export function UpdateContact() {
 
 	const { store, actions } = useContext(Context);
 
-	// let updateUser = actions.getContact(params.id);
-
-	const [fullName, setFullName] = useState(store.contacto.full_name);
-	const [phone, setPhone] = useState(store.contacto.phone);
-	const [email, setEmail] = useState(store.contacto.email);
-	const [address, setAddress] = useState(store.contacto.address);
+	const [fullName, setFullName] = useState("");
+	const [phone, setPhone] = useState("");
+	const [email, setEmail] = useState("");
+	const [address, setAddress] = useState("");
 
 	useEffect(() => {
-		console.log(params);
-		actions.getContact(params.id);
-		console.log("UpdateContact.js", store.contacto);
-
-		//setFullName(store.contacto.full_name);
+		if (params.id) {
+			actions.getContact(params.id);
+		}
 	}, []);
+
+	useEffect(() => {
+		if (params.id == store.contacto.id) {
+			setFullName(store.contacto.full_name);
+			setPhone(store.contacto.phone);
+			setEmail(store.contacto.email);
+			setAddress(store.contacto.address);
+		}
+	}, [store.contacto]);
 
 	function NewEmail(event) {
 		setEmail(event.target.value);
@@ -39,7 +44,7 @@ export function UpdateContact() {
 
 		// console.log("update contact", newContact);
 
-		actions.updateContact(params.id, newContact);
+		actions.updateContact(params.id, newContact); // SE USA PARAMS PARA INDICAR EL CONTACTO QUE ESTAMOS MODIFICANDO
 
 		alert("Contact successfully updated");
 		setFullName("");
@@ -93,9 +98,11 @@ export function UpdateContact() {
 							value={address}
 						/>
 					</div>
-					<button type="button" className="btn btn-primary form-control" onClick={SaveContact}>
-						save
-					</button>
+					<Link to="/">
+						<button type="button" className="btn btn-primary form-control" onClick={SaveContact}>
+							save
+						</button>
+					</Link>
 					<Link className="mt-3 w-100 text-center" to="/">
 						or get back to contacts
 					</Link>
