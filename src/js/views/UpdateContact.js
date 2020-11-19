@@ -16,8 +16,10 @@ export function UpdateContact() {
 
 	useEffect(() => {
 		if (params.id) {
+			// PARA MEZCLAR EL UPDATECONTACT.JS CON EL ADDCONTACT.JS
 			actions.getContact(params.id);
 		}
+		console.log(params);
 	}, []);
 
 	useEffect(() => {
