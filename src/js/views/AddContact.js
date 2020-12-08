@@ -80,11 +80,11 @@ export function AddContact() {
 					</div>
 					<Link to="/">
 						<button type="button" className="btn btn-primary form-control" onClick={SaveContact}>
-							save
+							Save
 						</button>
 					</Link>
 					<Link className="mt-3 w-100 text-center" to="/">
-						or get back to contacts
+						Get Back To Contacts
 					</Link>
 				</form>
 			</div>

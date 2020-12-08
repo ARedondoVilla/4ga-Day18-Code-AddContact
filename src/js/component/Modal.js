@@ -31,7 +31,7 @@ export const Modal = props => {
 						)}
 					</div>
 					<div className="modal-body">
-						<p>Estas apunto de eliminar el usuario {props.contactName}</p>
+						<p>You are about to delete the contact {props.contactName}</p>
 						<p>Warning: unknown consequences after this point... Kidding!</p>
 					</div>
 					<div className="modal-footer">

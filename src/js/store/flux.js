@@ -9,7 +9,6 @@ const getState = ({ getStore, setStore, getActions }) => {
 				address: null
 			},
 			usuario: "ARedondoVilla"
-			//Your data structures, A.K.A Entities
 		},
 		actions: {
 			createContact(data) {
@@ -24,12 +23,9 @@ const getState = ({ getStore, setStore, getActions }) => {
 				};
 				fetch(endpoint, config)
 					.then(response => {
-						console.log(response);
-
 						return response.json();
 					})
 					.then(json => {
-						console.log("Json Response: ", json);
 						getActions().listContacts(store.usuario);
 					});
 			},
@@ -45,12 +41,9 @@ const getState = ({ getStore, setStore, getActions }) => {
 						return response.json();
 					})
 					.then(json => {
-						// console.log("JSON Response: ", json);
-
 						setStore({
 							contacto: json
 						});
-						console.log("flux.js", store.contacto);
 					});
 			},
 
@@ -69,8 +62,6 @@ const getState = ({ getStore, setStore, getActions }) => {
 						return response.json();
 					})
 					.then(json => {
-						console.log("JSON Response: ", json);
-
 						getActions().listContacts(store.usuario);
 					});
 			},
@@ -86,8 +77,6 @@ const getState = ({ getStore, setStore, getActions }) => {
 						return response.json();
 					})
 					.then(json => {
-						console.log("JSON Response: ", json);
-
 						getActions().listContacts(store.usuario);
 					});
 			},
@@ -103,14 +92,9 @@ const getState = ({ getStore, setStore, getActions }) => {
 						return response.json();
 					})
 					.then(json => {
-						console.log("Obteniendo contactos de agenda");
-
-						console.log("JSON Response: ", json);
-
 						setStore({
-							agenda: json // ASIGNA AL ARRAY AGENDA LOS OBJETOS CONTACTOS AÑADIDIOS A agenda_slug
+							agenda: json
 						});
-						//console.log(json.results); // IMPRIME EL RESULTADOS DEL JSON OBTENIDO
 					});
 			}
 

@@ -15,27 +15,21 @@ export function UpdateContact() {
 	const [address, setAddress] = useState("");
 
 	useEffect(() => {
-		if (params.id) {
-			// PARA MEZCLAR EL UPDATECONTACT.JS CON EL ADDCONTACT.JS
-			actions.getContact(params.id);
-		}
-		console.log(params);
+		actions.getContact(params.id);
 	}, []);
 
 	useEffect(() => {
-		if (params.id == store.contacto.id) {
-			setFullName(store.contacto.full_name);
-			setPhone(store.contacto.phone);
-			setEmail(store.contacto.email);
-			setAddress(store.contacto.address);
-		}
+		setFullName(store.contacto.full_name);
+		setPhone(store.contacto.phone);
+		setEmail(store.contacto.email);
+		setAddress(store.contacto.address);
 	}, [store.contacto]);
 
 	function NewEmail(event) {
 		setEmail(event.target.value);
 	}
 
-	const SaveContact = e => {
+	const UpdateContact = e => {
 		const newContact = {
 			full_name: fullName,
 			phone: phone,
@@ -101,8 +95,8 @@ export function UpdateContact() {
 						/>
 					</div>
 					<Link to="/">
-						<button type="button" className="btn btn-primary form-control" onClick={SaveContact}>
-							Save
+						<button type="button" className="btn btn-primary form-control" onClick={UpdateContact}>
+							Update
 						</button>
 					</Link>
 					<Link className="mt-3 w-100 text-center" to="/">
